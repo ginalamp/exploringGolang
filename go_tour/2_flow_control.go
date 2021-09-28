@@ -129,10 +129,36 @@ func switch_statements() {
 	}
 }
 
+// basic understanding of defer statements
+func defer_statements() {
+	// A defer statement defers the execution of a function until the surrounding function returns.
+	// The deferred call's arguments are evaluated immediately, but the function call is not executed
+	// until the surrounding function returns.
+
+	// will only execute after surrounding function (hello and stack_defer) is done
+	defer fmt.Println("world")
+	fmt.Println("hello")
+
+	// stacking defers
+	stack_defer()
+}
+
+// Deferred function calls are pushed onto a stack.
+// When a function returns, its deferred calls are executed in last-in-first-out order.
+func stack_defer() {
+	fmt.Println("counting")
+	for i := 0; i < 10; i++ {
+		// will print in revers order
+		defer fmt.Println(i)
+	}
+	fmt.Println("done")
+}
+
 func main() {
 	fmt.Println("Flow control statements: for, if, else, switch, defer")
 	// for_loops()
 	// if_else()
-	switch_statements()
+	// switch_statements()
+	defer_statements()
 
 }
