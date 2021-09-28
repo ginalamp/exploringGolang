@@ -1,4 +1,4 @@
-// more types: pointers, structs, slices, and maps
+// more types: pointers, structs, arrays, slices, and maps
 
 package main
 
@@ -6,7 +6,21 @@ import (
 	"fmt"
 )
 
-// holds memory address value. Default value = nil. No pointer arithmetic.
+// struct: collection of fields
+type Vertex struct {
+	X int
+	Y int
+}
+
+// struct literal
+var (
+	v1 = Vertex{1, 2}  // type Vertex
+	v2 = Vertex{X: 1}  // {1, 0}
+	v3 = Vertex{}      // {0, 0}
+	px = &Vertex{1, 2} // type *Vertex
+)
+
+// pointers holds memory address value. Default value = nil. No pointer arithmetic.
 func pointers() {
 	i, j := 42, 2701
 
@@ -22,9 +36,28 @@ func pointers() {
 	fmt.Println(*p)
 }
 
+// struct = collection of fields
+func structs() {
+	v := Vertex{1, 2}
+	fmt.Println(v)
+
+	// change struct value
+	v.X = 4
+	fmt.Println(v)
+
+	// pointers to structs
+	p := &v // p point to v
+	p.Y = 1e9
+	fmt.Println(v)
+
+	// struct literal
+	fmt.Println(v1, v2, v3, px)
+}
+
 func main() {
 	fmt.Println("More types: pointers, structs, slices, and maps")
 
-	pointers()
+	// pointers()
+	structs()
 
 }
