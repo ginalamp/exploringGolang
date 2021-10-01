@@ -54,10 +54,24 @@ func structs() {
 	fmt.Println(v1, v2, v3, px)
 }
 
+// Type [n]T is an array of n values of type T.
+func arrays() {
+	var a [2]string // a = array of 2 strings. Can't resize.
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
+
+	primes := [6]int{2, 3, 4, 5, 666, 721} // int arr of size 6
+	fmt.Println(primes)
+
+}
+
 func main() {
 	fmt.Println("More types: pointers, structs, slices, and maps")
 
 	// pointers()
-	structs()
+	// structs()
+	arrays()
 
 }
