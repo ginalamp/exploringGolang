@@ -233,7 +233,70 @@ func sliceAppend() {
 	// append multiple elements
 	s = append(s, 2, 3, 4)
 	printSlice(s)
+}
 
+// map struct
+type Vertex2 struct {
+	Lat, Long float64
+}
+
+// map variable
+var m map[string]Vertex2
+
+// maps: maps keys to values
+func maps() {
+	m = make(map[string]Vertex2) // returns map of type string-to-Vertex2
+	m["Bell Labs"] = Vertex2{
+		40.68433, -74.39967,
+	}
+	fmt.Println(m["Bell Labs"])
+
+	// map literals
+	mapLiteral := map[string]Vertex2{ // map string to Vertex2
+		"Bell Labs": {
+			40.68433, -74.39967,
+		},
+		"Google": {
+			37.42202, -122.08408,
+		},
+	}
+	fmt.Println(mapLiteral)
+
+	// mutating maps
+	mutatingMaps()
+}
+
+// edit maps
+func mutatingMaps() {
+	m := make(map[string]int)
+
+	// set, edit, and retrieve element
+	m["Answer"] = 42
+	fmt.Println("The value: ", m["Answer"])
+	m["Answer"] = 48
+	fmt.Println("The value: ", m["Answer"])
+
+	// delete(<map>, <key>)
+	delete(m, "Answer")
+	fmt.Println("The value: ", m["Answer"]) // 0 (false)
+
+	// test if key is present (<value>, <boolean>)
+	// if not present, value = 0
+	v, ok := m["Answer"]
+	fmt.Println("The value: ", v, "Present? ", ok)
+
+}
+
+// return a map of the counts of each “word” in the string s.
+func WordCount(s string) map[string]int {
+	m := make(map[string]int)
+	words := strings.Fields(s) // breaks string up into a slice of words
+	for i := 0; i < len(words); i++ {
+		word := words[i]
+		v := m[word]
+		m[word] = v + 1
+	}
+	return m
 }
 
 func main() {
@@ -242,7 +305,8 @@ func main() {
 	// pointers()
 	// structs()
 	// arrays()
-	slices()
+	// slices()
+	maps()
 
 }
 
