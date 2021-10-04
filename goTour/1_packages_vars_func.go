@@ -1,3 +1,4 @@
+// packages, variables, and functions
 package main
 
 import (
