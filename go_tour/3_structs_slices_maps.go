@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -189,8 +190,7 @@ func makeDynamicSlice() {
 	c := b[:2] // len(c) = 2, cap(c) = cap(b) = 5
 	printSlice2("c", c)
 
-	// TODO: why is cap(d) = 3 and not 4 (5-1)?
-	d := c[2:5] // len(d) = 3, cap(d) = 3
+	d := c[2:5] // len(d) = 3, cap(d) = 3 (4-1) -> since upper unincluded
 	printSlice2("d", d)
 
 }
@@ -299,6 +299,40 @@ func WordCount(s string) map[string]int {
 	return m
 }
 
+// functions example
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
+// functions may be used as function args and return values
+func functions() {
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12)) // 13
+
+	fmt.Println(compute(hypot))    // compute(hypot(3, 4)) => Sqrt(3*3 + 4*4) = Sqrt(25) = 5
+	fmt.Println(compute(math.Pow)) // compute(math.Pow(3,4)) => 3**4 = 81
+
+	// anonymous functions
+	pos, neg := anonymousFunction(), anonymousFunction()
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
+		)
+	}
+}
+
+// anonymous functions
+func anonymousFunction() func(int) int { // returns anonymous func(int) int function
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
 func main() {
 	fmt.Println("More types: pointers, structs, slices, and maps")
 
@@ -306,7 +340,8 @@ func main() {
 	// structs()
 	// arrays()
 	// slices()
-	maps()
+	// maps()
+	functions()
 
 }
 
