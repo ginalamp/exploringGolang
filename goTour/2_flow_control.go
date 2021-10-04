@@ -1,5 +1,4 @@
 // basic flow control statements: for, if, else, switch, defer
-
 package main
 
 import (
@@ -10,7 +9,7 @@ import (
 )
 
 // basic for loop understanding
-func for_loops() {
+func forLoops() {
 	// basic for loop (go only has for loops)
 	sum := 0
 	for i := 0; i < 10; i++ {
@@ -53,7 +52,7 @@ func Sqrt(x float64) float64 {
 }
 
 // basic if/else understanding
-func if_else() {
+func ifElse() {
 	fmt.Println(sqrt(2), sqrt(-4))
 	// Both calls to pow return their results before the call to fmt.Println begins
 	fmt.Println(
@@ -85,7 +84,7 @@ func pow(x, n, lim float64) float64 {
 }
 
 // basic switch understanding
-func switch_statements() {
+func switchStatements() {
 	fmt.Println("Go runs on ")
 
 	// switch cases do not need to be integers
@@ -130,7 +129,7 @@ func switch_statements() {
 }
 
 // basic understanding of defer statements
-func defer_statements() {
+func deferStatements() {
 	// A defer statement defers the execution of a function until the surrounding function returns.
 	// The deferred call's arguments are evaluated immediately, but the function call is not executed
 	// until the surrounding function returns.
@@ -140,12 +139,12 @@ func defer_statements() {
 	fmt.Println("hello")
 
 	// stacking defers
-	stack_defer()
+	stackDefer()
 }
 
 // Deferred function calls are pushed onto a stack.
 // When a function returns, its deferred calls are executed in last-in-first-out order.
-func stack_defer() {
+func stackDefer() {
 	fmt.Println("counting")
 	for i := 0; i < 10; i++ {
 		// will print in revers order
@@ -156,9 +155,9 @@ func stack_defer() {
 
 func main() {
 	fmt.Println("Flow control statements: for, if, else, switch, defer")
-	// for_loops()
-	// if_else()
-	// switch_statements()
-	defer_statements()
+	forLoops()
+	ifElse()
+	switchStatements()
+	deferStatements()
 
 }
