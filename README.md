@@ -14,3 +14,13 @@ Learning and playing with golang mainly through tutorials
 * [Effective Go](https://golang.org/doc/effective_go)
 * [ZetCode Go Struct](https://zetcode.com/golang/struct/)
 * [Golangbot structs instead of classes](https://golangbot.com/structs-instead-of-classes/)
+
+## Go tour further resources
+Concurrency
+* [Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
+* [Advanced Go Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
+* [Share Memory by Communicating](https://golang.org/doc/codewalk/sharemem/)
+
+Web applications
+* [A simple programming environment (slides)](https://vimeo.com/53221558)
+* [Writing Web Applications](https://golang.org/doc/articles/wiki/)
