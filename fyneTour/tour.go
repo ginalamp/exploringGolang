@@ -511,7 +511,7 @@ func main() {
 	// boxContainer()
 	// button()
 	// entry()
-	// choices()
+	choices()
 	// form()
 	// progressBar()
 	// toolbar()
@@ -521,5 +521,5 @@ func main() {
 	// bindingSimpleWidgets()
 	// twoWayBinding()
 	// conversion()
-	listData()
+	// listData()
 }

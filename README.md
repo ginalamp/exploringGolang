@@ -2,6 +2,7 @@
 Learning and playing with golang mainly through tutorials
 
 * [Golang Tour Tutorial (Basics)](https://tour.golang.org/list)
+* [Fyne Tour (Go GUI vibes)](https://developer.fyne.io/tour/introduction/)
 
 ## Resources I want to check out further
 * [Go strings fields (splits string into []string)](https://pkg.go.dev/strings#Fields)
